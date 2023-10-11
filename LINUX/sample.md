@@ -1,0 +1,4 @@
+```commandline
+ls -a
+cd ../..
+```
