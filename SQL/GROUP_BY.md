@@ -22,7 +22,7 @@ FROM
 GROUP BY status;
 ```
 
-![Оператор GROUP BY](group_by.png "Работа GROUP BY")
+![Оператор GROUP BY](images/group_by.png "Работа GROUP BY")
 
 ``` sql
 Получить общую сумму всех заказов по статусам, вы объединяете таблицу orders с orderdetails таблицей и используете SUM функцию для расчета общей суммы
@@ -33,7 +33,7 @@ FROM
 GROUP BY status;
 ```
 
-![Оператор GROUP BY](group_by2.png "Работа GROUP BY")
+![Оператор GROUP BY](images/group_by2.png "Работа GROUP BY")
 
 ``` sql
 Запрос получает общий объем продаж за каждый год.
@@ -50,7 +50,7 @@ GROUP BY
     YEAR(orderDate);
 ```
 
-![Оператор GROUP BY](group_by3.png "Работа GROUP BY")
+![Оператор GROUP BY](images/group_by3.png "Работа GROUP BY")
 
 ### HAVING
 
@@ -147,4 +147,4 @@ GROUP BY
     orderYear 
 WITH ROLLUP;
 ```
-![Оператор ROLLUP](rollup.png "Работа ROLLUP")
+![Оператор ROLLUP](images/rollup.png "Работа ROLLUP")

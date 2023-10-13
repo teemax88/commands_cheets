@@ -145,7 +145,7 @@ ORDER BY
 + *Задает offset смещение первой возвращаемой строки. offset Первая строка равна 0, а не 1 .*
 + *Определяет row_count максимальное количество возвращаемых строк.*
 
-![Оператор LIMIT](limit.png "Собака смотрит влево")
+![Оператор LIMIT](images/limit.png "Собака смотрит влево")
 ``` sql
 SELECT 
     select_list
@@ -153,6 +153,3 @@ FROM
     table_name
 LIMIT [offset,] row_count;
 ```
-
-# ПОДЗАПРОСЫ
-
