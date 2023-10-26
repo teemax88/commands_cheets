@@ -1,0 +1,40 @@
+Чтобы удалить данные из таблицы из программы Python, выполните следующие действия:
+
++ Подключитесь к базе данных , создав новый MySQLConnectionобъект.
++ Создайте экземпляр нового объекта курсора и вызовите его  execute()метод. Для фиксации изменений всегда следует вызывать  commit()метод объекта MySQLConnectionпосле вызова  execute()метода.
++ Закройте курсор и соединение с базой данных, вызвав  close()метод соответствующих объектов.
+
+*В следующем примере показано, как удалить книгу, указанную по идентификатору книги*
+```python
+from mysql.connector import MySQLConnection, Error
+from python_mysql_dbconfig import read_db_config
+
+def delete_book(book_id):
+    db_config = read_db_config()
+
+    query = "DELETE FROM books WHERE id = %s"
+
+    try:
+        # connect to the database server
+        conn = MySQLConnection(**db_config)
+
+        # execute the query
+        cursor = conn.cursor()
+        cursor.execute(query, (book_id,))
+
+        # accept the change
+        conn.commit()
+
+    except Error as error:
+        print(error)
+
+    finally:
+        cursor.close()
+        conn.close()
+
+
+if __name__ == '__main__':
+    delete_book(102)
+```
+
+*Вы всегда должны использовать заполнители внутри любого запроса, который вы передаете методу  execute(). Это поможет вам избежать SQL-инъекции.*
