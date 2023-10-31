@@ -1,0 +1,1 @@
+f'left aligned{:<30}'
