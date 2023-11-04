@@ -1,3 +1,9 @@
+```text
+*args (аргументы кортежа):
+*args позволяет передавать произвольное количество позиционных аргументов в функцию. Он собирает все неименованные аргументы в кортеж.
+Обычно *args используется, когда неизвестно заранее, сколько аргументов будет передано функции.
+```
+
 ```python
 # * может использоваться в присвоении переменных (если * есть, то будет присвоен список из значений)
 
@@ -7,7 +13,8 @@ print((a, b, c))    # (5, 8, 'asd')
 a, b, c = [12, True, 'dfg']
 print((a, b, c))    # (12, True, 'dfg')
 
-# a, b, c = [True, 7, 12, 2.23, 'wer', 3] # print((a, b, c)) = ошибка поскольку переменных 3, а значений 6
+# a, b, c = [True, 7, 12, 2.23, 'wer', 3]
+# print((a, b, c)) = ошибка поскольку переменных 3, а значений 6
 
 a, *b, c = [True, 7, 12, 2.23, 'wer', 3]
 print((a, b, c))    # (True, [7, 12, 2.23, 'wer'], 3)
@@ -18,7 +25,6 @@ print((a, b, c))    # (True, 7, [12, 2.23, 'wer', 3])
 *a, b, c = (5, 8)
 print((a, b, c))    # ([], 5, 8) в а запись пустого списка
 
-
 # * помогает распаковать списки, кортежи и т.д.
 w = [1, 2, 45]
 print(*w)  # 1 2 45 распаковал список при выводе
@@ -28,18 +34,19 @@ print(list(range(1, 5)))  # [1, 2, 3, 4] вывод списка от 1го до
 
 # print(list(range(s))) # TypeError поскольку программа не может распаковать наш список s и подставить значения
 print(list(range(*s)))  # [4, 5, 6, 7, 8, 9] вывод списка от 4-х до 9-ти
+```
 
-
+````python
 def fun(a, b, c, d):
     print(a, b, c, d)
-
 
 fun(1, 2, 3, 4)  # 1 2 3 4
 a = ('asd', True, 78, [3, 4, 5])
 # fun(a) # ТypeError поскольку программа не может распаковать наш кортеж а и подставить значения
 fun(*a)  # asd True 78 [3, 4, 5]
+````
 
-
+````python
 # * в функции поможет из полученных элементов создать кортеж tuple (*args)
 
 def cort(*args):
@@ -50,11 +57,11 @@ def cort(*args):
         s += i
     return s
 
-
 cort(1, 34, 5, 7, 89)  # (1, 34, 5, 7, 89) <class 'tuple'>
 print(cort(1, 34, 5, 7, 89))  # 136 сумма кортежа
+````
 
-
+````python
 # ** в функции поможет из полученных элементов создать словарь (**kwargs)
 
 def dict_1(**kwargs):
@@ -62,28 +69,61 @@ def dict_1(**kwargs):
     for key, value in kwargs.items():
         print(key, value)
 
-
 dict_1(a=23, b=12)  # {'a': 23, 'b': 12} <class 'dict'> создаст словарь и потом выведет а 23  b 12
+````
 
+### Пример использования *args:*
+```python
+def sum_all(*args):
+    result = 0
+    for num in args:
+        result += num
+    return result
 
-def dict_tuple(*args, **kwargs):  # преобразует значения в кортеж, а именные значения в словарь
-    print(args, kwargs)
+# Вызов функции с разным количеством аргументов
+print(sum_all(1, 2, 3))  # Вывод: 6
+print(sum_all(10, 20, 30, 40))  # Вывод: 100
+```
 
+```text
+**kwargs (аргументы словаря):
+**kwargs позволяет передавать произвольное количество именованных аргументов в функцию. Он собирает все именованные аргументы в словарь.
+**kwargs обычно используется, когда функции нужно передать несколько именованных параметров с разными значениями.
+```
 
-dict_tuple(1, 23, 45, 23, 'asd', a=12, b=3, c=45)  # (1, 23, 45, 23, 'asd') {'a': 12, 'b': 3, 'c': 45}
+### Пример использования **kwargs:*
+```python
+def print_info(**kwargs):
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
 
-print(1, 2, 3, 'asd', sep='  ', end='!')  # 1  2  3  asd!
+# Вызов функции с разными именованными аргументами
+print_info(name="John", age=30, city="New York")
+# Вывод:
+# name: John
+# age: 30
+# city: New York
+```
 
+### Комбинированный пример с *args и **kwargs:*
+```python
+def process_data(*args, **kwargs):
+    for arg in args:
+        print(f"Аргумент: {arg}")
+    for key, value in kwargs.items():
+        print(f"Ключ: {key}, Значение: {value}")
 
-def out_print(*args, sep='#', end='$'):
-    print(args, sep, end)
+# Вызов функции с разными аргументами
+process_data(1, 2, 3, name="Alice", age=25)
+# Вывод:
+# Аргумент: 1
+# Аргумент: 2
+# Аргумент: 3
+# Ключ: name, Значение: Alice
+# Ключ: age, Значение: 25
+```
 
-
-out_print(1, 2, 3, 'asd', sep=90)  # (1, 2, 3, 'asd') 90 $ (sep заменился на 90 а не был взят по умолчанию)
-
-
-# ***********************************************************
-
+````python
 def random_dialogue(place, *args, **kwargs):
     print("-- Do you know how to get to the", place, "?")
     print("-- I'm sorry, I am not from here, no idea about the", place)
@@ -94,7 +134,6 @@ def random_dialogue(place, *args, **kwargs):
         print(kw, ":", kwargs[kw])
     print('\n')
 
-
 random_dialogue("Library", "Do you at least have a cigar, sir?",  # Call 1
                 "Sure, help yourself.",
                 lost_person="old banker",
@@ -104,8 +143,9 @@ random_dialogue("Library", "Do you at least have a cigar, sir?",  # Call 1
 dic = {"lost_person": "old banker", "other_guy": "street_clown", "scene": "in a park"}
 lst = ["Do you at least have a cigar, sir?", "Sure, help yourself."]
 random_dialogue("Library", *lst, **dic)  # Call 2 - the exact same output
+````
 
-
+````python
 def cat(food, *args, state='still hungry', action='meow', breed='Siamese'):
     print(f"-- This cat would {action}", end=' ')
     print(f"if you gave it {food}")
@@ -114,11 +154,10 @@ def cat(food, *args, state='still hungry', action='meow', breed='Siamese'):
     for arg in args:
         print(arg.upper())
 
-
 # Add a list of phrases that will be capitalized.
 phrases = # Declare the phrases following the output, like in the task description
 # Add a dict of keyword arguments.
 keywords = # Declare the keywords to insert into the narrative. The keys should match the named arguments of the cat()
 # Call the cat() function like in example above to print the required output.
 # invoke cat with some food, phrases and keywords
-```
+````
