@@ -47,6 +47,7 @@
 
 """ Функции """
 
+
 # x, y, z = 5, 7, 10
 
 
@@ -84,30 +85,42 @@
 # <h1>Python</h1>
 
 
-import requests
+# import requests
+#
+# # base_url = "https://dev-rest.qform.io/ru/v3"
+# base_url = "https://uapi.qform.io/api"
+# endpoint = "/leads/get"
+# payload = {"per-page": "10"}
+# headers = {
+#     "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2OTkzMzkyMDEsImV4cCI6MjAxNDY5OTIwMSwic3ViIjoicmVkbGluZTE1MDEiLCJhdXRoIjoiUk9MRV9BRE1JTiJ9.PU7bqazAMC5RLo7CSrVT8g-DIf0vaHasAor_AxqJA6Y",
+#     "Content-Type": "application/json; charset=UTF-8"
+# }
+#
+# response = requests.get(base_url + endpoint, params=payload, headers=headers)
+# result = response.json()
+#
+# print("--------Список всех заявок на одной странице---------")
+# print(result)
+# print("---------------------------------------------")
+#
+# print(f"Данные по 1-й заявке --- {result['_embedded']['leadDataDTOList'][0]['fields']}")
+# print(f"Итого заявок пришло в ответе ---- {len(result['_embedded']['leadDataDTOList'])}")
+#
+# import time
+# import datetime
+#
+# d = datetime.date(2023, 7, 8)
+# unixtime = int(time.mktime(d.timetuple()))
+# print(unixtime)
 
-# base_url = "https://dev-rest.qform.io/ru/v3"
-base_url = "https://uapi.qform.io/api"
-endpoint = "/leads/get"
-payload = {"per-page": "10"}
-headers = {
-    "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2OTkzMzkyMDEsImV4cCI6MjAxNDY5OTIwMSwic3ViIjoicmVkbGluZTE1MDEiLCJhdXRoIjoiUk9MRV9BRE1JTiJ9.PU7bqazAMC5RLo7CSrVT8g-DIf0vaHasAor_AxqJA6Y",
-    "Content-Type": "application/json; charset=UTF-8"
-}
 
-response = requests.get(base_url + endpoint, params=payload, headers=headers)
-result = response.json()
+class Person:
+    def hello(vfdvdr):
+        print("Hello")
 
-print("--------Список всех заявок на одной странице---------")
-print(result)
-print("---------------------------------------------")
 
-print(f"Данные по 1-й заявке --- {result['_embedded']['leadDataDTOList'][0]['fields']}")
-print(f"Итого заявок пришло в ответе ---- {len(result['_embedded']['leadDataDTOList'])}")
+p = Person()
+p.hello()   # Hello
 
-import time
-import datetime
 
-d = datetime.date(2023, 7, 8)
-unixtime = int(time.mktime(d.timetuple()))
-print(unixtime)
+
