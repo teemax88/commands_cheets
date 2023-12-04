@@ -114,13 +114,14 @@
 # print(unixtime)
 
 
-class Person:
-    def hello(vfdvdr):
-        print("Hello")
+# class Person:
+#     def hello(vfdvdr):
+#         print("Hello")
+#
+#
+# p = Person()
+# p.hello()   # Hello
 
-
-p = Person()
-p.hello()   # Hello
 
 
 
