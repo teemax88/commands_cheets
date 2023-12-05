@@ -2166,4 +2166,5 @@ nc: Permission denied
 [st00@c7-sandbox ~]$ id
 uid=2000(st00) gid=1001(qa) groups=1001(qa),190(systemd-journal) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
 ````
-## Проблемы прикладного уровня
+
+
