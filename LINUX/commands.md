@@ -112,4 +112,12 @@ uniq
 может удалять дублирующиеся строки, печатать только уникальные строки и показывать только дублирующиеся строки.
 ```
 
+![Command Windows/Linux](images/win-lin-comands1.jpg "Windows/Linux команды")
 
+![Command Windows/Linux](images/win-lin-comands2.jpg "Windows/Linux команды")
+
+![Command Windows/Linux](images/win-lin-comands3.jpg "Windows/Linux команды")
+
+![Command Windows/Linux](images/win-lin-comands4.jpg "Windows/Linux команды")
+
+![Command netcat](images/netcat_Linux.jpeg "netcat команды")
