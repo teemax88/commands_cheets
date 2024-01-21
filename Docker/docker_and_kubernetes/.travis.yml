@@ -1,0 +1,28 @@
+sudo: required
+
+language: node_js
+node_js:
+  - '11.10.1'
+
+services:
+    - docker
+
+before_install:
+    - docker build -t imagename/docker-react -f Dockerfile .
+
+script:
+    - docker run imagename/docker-react npm run test -- --coverage
+
+deploy:
+    provider: elasticbeanstalk
+    region: "us-east-2"
+    app: "docker-course-1"
+    env: "DockerCourse1-env"
+    bucket_name: "elasticbeanstalk-us-east-2-927480977395"
+    bucket_path: "docker-course-1"
+    on:
+        branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key:
+        secure: "$AWS_SECRET_KEY"
+

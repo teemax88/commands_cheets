@@ -87,3 +87,13 @@ def test_api_filtering(base_url, userId, userId_in_response):
     random_post_number = random.randint(1, 9)
     assert len(response) > 0
     assert response[random_post_number]['userId'] == userId_in_response
+
+"""////////////////////////////////////////////////////////////////////////////////////////////////////////////////"""
+
+@pytest.mark.parametrize("test_input, expected", [
+                             ("3+5", 8),
+                             ("2+4", 6),
+                             pytest.param("6*9", 42, marks=pytest.mark.skip(reason="JIRA-12312"))
+                         ])
+def test_eval(test_input, expected):
+    assert eval(test_input) == expected

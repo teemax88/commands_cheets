@@ -1,0 +1,19 @@
+version: '3'
+services:
+  web: # the name of the container
+    build:
+      context: . # the root directory is the same as docker-compose location
+      dockerfile: Dockerfile.dev # Dockerfile with custom name
+    ports:
+      - "3000:3000" # link the ports of the container
+    volumes: 
+      - /app/node_modules # just use the node_modules and do not track its cahnges
+      - .:/app # link files in the root folder to the files in the /app folder
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - .:/app
+    command: ["npm", "run", "test"]

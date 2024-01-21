@@ -1,0 +1,5 @@
+paramiko==2.11.0
+flake8==4.0.1
+black==22.3.0
+mypy==0.961
+pylint==2.14.3
