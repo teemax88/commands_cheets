@@ -23,6 +23,26 @@ p = Person('Ivan', 'Ivanov')
 d = Doctor('Petr', 'Petrov', 25)
 print(p.name, p.surname)
 print(d.name, d.surname, d.age)
+
+
 # Вывод:
 # Ivan Ivanov
 # Petr Petrov 25
+
+# //////////////////************************************/////////////////////////
+
+class Cat:
+    favorite_food = []
+
+    def __init__(self, name):
+        self.name = name
+
+    def add_food(self, food):  # Method modifying the class variable
+        self.favorite_food.append(food)
+
+
+kitty = Cat('Kitty')
+barsik = Cat('Barsik')
+kitty.add_food('salmon')
+print(barsik.favorite_food)  # ['salmon']
+print(kitty.favorite_food)  # ['salmon']

@@ -1,7 +1,9 @@
 from typing import List, Dict, Tuple
 
+
 class Foo:
     pass
+
 
 list_of_foo: List[Foo] = [Foo(), Foo(), Foo(), Foo()]
 list_of_foo_error: List[Foo] = [1, 2, 3, 4, 5]

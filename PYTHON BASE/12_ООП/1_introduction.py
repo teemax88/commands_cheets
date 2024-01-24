@@ -68,7 +68,8 @@ Car.drive()  # Let's GO
 print(Car.__dict__)  # среди методом будет 'drive': <function Car.drive at 0x0000023555525C60>
 
 a = Car()
-print(a.drive)  # если без вызова, то будет показано что это <bound method Car.drive of <__main__.Car object at 0x000001DC926D1190>>
+print(
+    a.drive)  # если без вызова, то будет показано что это <bound method Car.drive of <__main__.Car object at 0x000001DC926D1190>>
 
 # если с вызовом, то появится ошибка
 print(a.drive())  # TypeError: Car.drive() takes 0 positional arguments but 1 was given

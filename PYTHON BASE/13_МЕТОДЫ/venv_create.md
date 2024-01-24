@@ -1,13 +1,15 @@
-Создание окружения
 ```python
+# Создание окружения
 python -m venv venv
 ```
+
 ```python
-Запуск окружения
+# Запуск окружения
 \venv\Scripts\activate
 ```
-Запуск http сервера в терминале pycharm
+
 ```python
+# Запуск http сервера в терминале pycharm
 python3 -m http.server
 
 адрес 127.0.0.1:8000
