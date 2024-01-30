@@ -1,17 +1,33 @@
-import pytest
 import random
+
+import pytest
 import requests
 
-# # Параметризация фикстурой
-# def test_parametrized_with_fixture(fixture_with_params):
-#     print("\nThe value from fixture = ", fixture_with_params)
-#     assert fixture_with_params > 0
-#
-#
-# # Параметризация одним параметром
-# @pytest.mark.parametrize("test_input", [1, 2, 3])
-# def test_parametrize_with_mark_single(test_input):
-#     assert test_input < 4
+
+@pytest.mark.parametrize("test_input", [1, 2, 3])
+class TestClassParametrized:
+
+    # Все функци должны использовать аргумент
+    def test_one(self, test_input):
+        pass
+
+    def test_two(self, test_input):
+        pass
+
+
+"""////////////////////////////////////////////////////////////////////////////////////////////////////////////////"""
+
+
+# Параметризация фикстурой
+def test_parametrized_with_fixture(fixture_with_params):
+    print("\nThe value from fixture = ", fixture_with_params)
+    assert fixture_with_params > 0
+
+
+# Параметризация одним параметром
+@pytest.mark.parametrize("test_input", [1, 2, 3])
+def test_parametrize_with_mark_single(test_input):
+    assert test_input < 4
 
 
 # Использование нескольких параметров
@@ -26,23 +42,25 @@ path_to_test/test_fixtures_parametrization.py::test_parametrize_with_mark_multip
 def test_parametrize_with_mark_multiple(test_input, expected):
     assert eval(test_input) == expected
 
-# # Вложенная параметризация
-# # Можно добавить
-# @pytest.mark.parametrize("x", [0, 1])
-# @pytest.mark.parametrize("y", [2, 3])
-# def test_foo(x, y):
-#     print(x, y)
+
+# Вложенная параметризация
+# Можно добавить
+@pytest.mark.parametrize("x", [0, 1])
+@pytest.mark.parametrize("y", [2, 3])
+def test_foo(x, y):
+    print(x, y)
 
 
 # Combine parametrization
 # каждый из параметров сравнивается с первым из фикстуры, затем каждый из параметров со вторым из фикстуры, и т.д.
 # 1-a, 2-a, 3-a, 1-b, 2-b, 3-b, 1-c, 2-c, 3-c
-# @pytest.mark.parametrize("test_input", [1, 2, 3])
-# def test_one_2(test_input, fixture_with_params):
-#     print(test_input, fixture_with_params)
+@pytest.mark.parametrize("test_input", [1, 2, 3])
+def test_one_2(test_input, fixture_with_params):
+    print(test_input, fixture_with_params)
 
 
 """////////////////////////////////////////////////////////////////////////////////////////////////////////////////"""
+
 
 # Другой пример
 @pytest.mark.parametrize('input_id, output_id',
@@ -88,12 +106,14 @@ def test_api_filtering(base_url, userId, userId_in_response):
     assert len(response) > 0
     assert response[random_post_number]['userId'] == userId_in_response
 
+
 """////////////////////////////////////////////////////////////////////////////////////////////////////////////////"""
 
+
 @pytest.mark.parametrize("test_input, expected", [
-                             ("3+5", 8),
-                             ("2+4", 6),
-                             pytest.param("6*9", 42, marks=pytest.mark.skip(reason="JIRA-12312"))
-                         ])
+    ("3+5", 8),
+    ("2+4", 6),
+    pytest.param("6*9", 42, marks=pytest.mark.skip(reason="JIRA-12312"))
+])
 def test_eval(test_input, expected):
     assert eval(test_input) == expected

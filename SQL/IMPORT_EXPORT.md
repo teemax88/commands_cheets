@@ -1,6 +1,6 @@
 ## IMPORT
 ```sql
-используем оператор CREATE TABLE для создания discountsтаблицы следующим образом
+используем оператор CREATE TABLE для создания discounts таблицы следующим образом
 
 CREATE TABLE discounts (
     id INT NOT NULL AUTO_INCREMENT,
@@ -12,11 +12,12 @@ CREATE TABLE discounts (
 
 ```
 
-*Следующий  discounts.csvфайл содержит первую строку в качестве заголовков столбцов и три другие строки данных*
+*Следующий  discounts.csv файл содержит первую строку в качестве заголовков столбцов и три другие строки данных*
+
 ![Оператор IMPORT](images/import.png "Работа IMPORT")
 
 ```sql
-Следующий оператор импортирует данные из   c:\tmp\discounts.csvфайла в discountsтаблицу.
+Следующий оператор импортирует данные из c:\tmp\discounts.csvфайла в discounts таблицу.
 
 LOAD DATA INFILE 'c:/tmp/discounts.csv' 
 INTO TABLE discounts 

@@ -1,14 +1,16 @@
-import pytest
 import typing
-from typing import TypeVar
+
+import pytest
 from selenium.webdriver import Remote
 
 
 class FooPage:
     pass
 
+
 class BarPage:
     pass
+
 
 class BarChildPage(BarPage):
     pass

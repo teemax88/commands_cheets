@@ -4,13 +4,16 @@ import requests
 r = requests.get('https://jsonplaceholder.typicode.com/posts/1')
 
 print("\n------- status/headers/encoding ---------")
-print(r.status_code)
-print(r.headers['content-type'])
-print(r.encoding)
+print(r.status_code)    # 200
+print(r.headers['content-type'])    # application/json; charset=utf-8
+print(r.encoding)   # utf-8
+
 print("\n----------------- text ------------------")
 print(r.text)
+
 print("\n----------------- json ------------------")
 print(pprint.pprint(r.json()))
+
 print("\n---------------- headers ----------------")
 for key, value in r.headers.items():
     print(key, ' => ', value)
