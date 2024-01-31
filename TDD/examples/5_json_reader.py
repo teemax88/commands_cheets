@@ -1,7 +1,7 @@
 import json
 from files import JSON_FILE_PATH
 
-# Вот так лучше не делать "../files/example.json"
+# Вот так лучше не делать "../files/test_data.json"
 with open(JSON_FILE_PATH, "r") as f:
     users = json.loads(f.read())
 

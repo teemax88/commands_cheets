@@ -1,5 +1,7 @@
 import argparse
+import subprocess
 
+# Создание парсера
 parser = argparse.ArgumentParser()
 
 """
@@ -19,6 +21,7 @@ parser = argparse.ArgumentParser()
 
 """
 
+# Добавление аргументов
 parser.add_argument('--method', '-m',
                     action='store',
                     help='Method to make request',
@@ -60,3 +63,45 @@ args = parser.parse_args()
 
 # Это словарь из которого аргументы можно доставать
 print(args)
+
+"""////////////////////////////////////////////////////////////////////////////////////////////////////////////////"""
+
+
+def ping_ip(ip_address, count):
+    # благодаря argparse, доступен help
+    """
+    Ping IP address and return tuple:
+    On success: (return code = 0, command output)
+    On failure: (return code, error output (stderr))
+    """
+    reply = subprocess.run(
+        f"ping -c {count} -n {ip_address}",
+        shell=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        encoding="utf-8",
+    )
+    if reply.returncode == 0:
+        return True, reply.stdout
+    else:
+        return False, reply.stdout + reply.stderr
+
+
+parser = argparse.ArgumentParser(description="Ping script")
+
+# аргумент, который передается после опции -a, сохранится в переменную ip
+# можно указать, что аргумент является обязательным. Для этого надо изменить опцию -a: добавить в конце required=True
+parser.add_argument("-a", dest="ip", required=True)
+
+# аргумент, который передается после опции -c, будет сохранен в переменную count, но прежде будет конвертирован в число.
+# Если аргумент не был указан, по умолчанию будет значение 2
+parser.add_argument("-c", dest="count", default=2, type=int)
+
+args = parser.parse_args()
+print(args)
+
+rc, message = ping_ip(args.ip, args.count)
+print(message)
+
+# Вызов
+# python ping_function.py -a 8.8.8.8 -c 5

@@ -1,13 +1,13 @@
 """
-This is the "example" module.
+This is the "test_data" module.
 
-The example module supplies one function, factorial().  For example,
+The test_data module supplies one function, factorial().  For test_data,
 
 >>> factorial(5)
 720
 """
 
-# Не забыть показать python -m doctest -v example.py
+# Не забыть показать python -m doctest -v test_data.py
 def factorial(n):
     """Return the factorial of n, an exact integer >= 0.
 

@@ -44,7 +44,7 @@
    logger.debug("Открытие браузера Chrome")
 
    driver.get("https://example.com")
-   logger.debug("Переход на страницу example.com")
+   logger.debug("Переход на страницу test_data.com")
 
    element = driver.find_element_by_id("some_element")
    logger.debug("Найден элемент по ID: some_element")

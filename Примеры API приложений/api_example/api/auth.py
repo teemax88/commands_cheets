@@ -65,7 +65,7 @@ def login():
                 200)
             time.sleep(random.randint(2, 5))  # Imitating long response
         else:
-            # This is an example of wrong code given to auth error
+            # This is an test_data of wrong code given to auth error
             # 402 is a Payment required status
             response = make_response({
                 "status": "error",

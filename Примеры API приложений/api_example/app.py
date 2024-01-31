@@ -33,7 +33,7 @@ def config():
 @app.route('/api')
 def api():
     return """
-    <h1>API example: v1.0.1</h1>
+    <h1>API test_data: v1.0.1</h1>
     <a href="/api/create">Create</a> Создаение данных<br>
     <a href="/api/read">Read</a> Чтение данных<br>
     <a href="/api/info">Info</a> Echo по запросу<br>

@@ -9,7 +9,7 @@ def base_url():
 
 def pytest_generate_tests(metafunc):
     if "auth_availability" in metafunc.fixturenames:
-        with open("test_data/auth_endpoints.csv") as file:
+        with open("auth_endpoints.csv") as file:
             reader = csv.reader(file)
             header = next(reader)
             metafunc.parametrize("auth_availability", reader)

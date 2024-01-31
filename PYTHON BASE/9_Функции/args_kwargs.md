@@ -103,6 +103,6 @@ def cat(food, *args, state='still hungry', action='meow', breed='Siamese'):
 phrases = # Declare the phrases following the output, like in the task description
 # Add a dict of keyword arguments.
 keywords = # Declare the keywords to insert into the narrative. The keys should match the named arguments of the cat()
-# Call the cat() function like in example above to print the required output.
+# Call the cat() function like in test_data above to print the required output.
 # invoke cat with some food, phrases and keywords
 ````

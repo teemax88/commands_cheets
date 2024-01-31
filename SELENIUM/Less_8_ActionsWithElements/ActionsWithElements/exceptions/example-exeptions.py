@@ -10,7 +10,7 @@ def divide(x, y):
 a = divide(10, 5)
 b = divide(10, 0)
 
-# First example
+# First test_data
 
 my_dict = {"a": 1, "b": 2, "c": 3}
 
@@ -23,7 +23,7 @@ except KeyError:
 except:
     print("Some other error occurred!")
 
-# Second example
+# Second test_data
 
 try:
     value = my_dict["d"]

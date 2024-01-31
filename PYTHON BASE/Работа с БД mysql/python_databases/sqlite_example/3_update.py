@@ -3,7 +3,7 @@ from sqlite_example.connect import connection
 
 cursor = connection.cursor()
 
-# Bad example because hardcoded data!!!
+# Bad test_data because hardcoded data!!!
 sql = f"UPDATE {config.TABLE} SET email = '????' WHERE name = ? LIMIT 2"
 
 cursor.execute(sql, ("Vasiliy2",))

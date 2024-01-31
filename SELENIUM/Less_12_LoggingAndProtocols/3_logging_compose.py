@@ -5,7 +5,7 @@ from Less_12_LoggingAndProtocols.python_qa_logging.logging_0.exmaple_app import 
 
 logger = logging.getLogger(__name__)
 
-file_handler = logging.FileHandler('example.log')
+file_handler = logging.FileHandler('test_data.log')
 file_handler.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s'))
 logger.addHandler(file_handler)
 logger.setLevel(logging.DEBUG)

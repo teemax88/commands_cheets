@@ -5,7 +5,7 @@ import allure
 #
 # --allure-stories
 #
-# for example:
+# for test_data:
 #
 # $ pytest tests.py --allure-stories story_1,story_2
 #

@@ -9,7 +9,7 @@ print("\n=== Mock creates its properties when you access them ===")
 print(mock.some_attribute)
 print(mock.do_something())
 
-print("\n=== Mock example for json library ===")
+print("\n=== Mock test_data for json library ===")
 json = Mock()
 print(json)
 
@@ -21,7 +21,7 @@ print(json.dumps("hello", 1, 2, 3, 4, None))
 # 2. This method also returns Mock object
 json.dumps("hello").get("test").get(None)
 
-print("\n=== Mock example asserting mock calls ===")
+print("\n=== Mock test_data asserting mock calls ===")
 # 3. You can check how loads was called
 json.dumps.assert_called()
 

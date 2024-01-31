@@ -29,7 +29,7 @@ def configure_html_report_env(request, environment_info):
     request.config._metadata.update(
         {"browser": request.config.getoption("--browser"),
          "address": request.config.getoption("--address"),
-         "example": environment_info[1],
+         "test_data": environment_info[1],
          "test_title": "Hello World"})
     yield
 

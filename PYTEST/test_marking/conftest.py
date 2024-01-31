@@ -14,4 +14,4 @@ def pytest_runtest_setup(item):
     envnames = [mark.args[0] for mark in item.iter_markers(name='env')]
     if envnames:
         if item.config.getoption("-E") not in envnames:
-            pytest.skip("test requires env in %r" % envnames)
+            pytest.skip(f"test requires env in {envnames}")

@@ -29,7 +29,7 @@ class BasicModel(BaseModel):
 data = {
     "id": 1,
     "name": "John Doe",
-    "email": "johndoe@example.com"
+    "email": "johndoe@test_data.com"
 }
 
 try:
