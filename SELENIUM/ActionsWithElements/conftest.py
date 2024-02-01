@@ -8,9 +8,9 @@ DRIVERS = os.path.expanduser("~/Downloads/drivers")
 
 
 def pytest_addoption(parser):
-    parser.addoption("--browser", "-B", default="chrome")
+    parser.addoption("--browser", "-B", action="store", default="chrome", help="Browser name")
     parser.addoption("--executor", "-E", default="127.0.0.1")
-    parser.addoption("--url", "-U", default="http://demo.opencart.com")
+    parser.addoption("--url", "-U", action="store", default="http://demo.opencart.com", help="Web address")
 
 
 @pytest.fixture
